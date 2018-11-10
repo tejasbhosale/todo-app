@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  todoitems: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.todoitems = [];
   }
-
+  value = '';
+  onEnter(value: string) {
+    this.value = value;
+    this.todoitems.push(value);
+  }
 }
