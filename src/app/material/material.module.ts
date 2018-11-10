@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatStepperModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [MatButtonModule, MatCheckboxModule, MatInputModule, BrowserAnimationsModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatStepperModule],
-  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, BrowserAnimationsModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatStepperModule],
+  imports: [MatCardModule, MatButtonModule, MatCheckboxModule, MatInputModule, BrowserAnimationsModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatListModule],
+  exports: [MatCardModule, MatButtonModule, MatCheckboxModule, MatInputModule, BrowserAnimationsModule, MatGridListModule, MatTabsModule, MatMenuModule, MatToolbarModule, MatListModule],
 })
 
 export class MaterialModule { }
