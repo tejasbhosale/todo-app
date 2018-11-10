@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  val: string;
+  viewValue: string;
   todoitems: any;
+  minDate = new Date(2000, 0, 1);
+  maxDate = new Date(2020, 0, 1);
+
+  priority: any[] = [
+    { val: 'low', viewValue: 'Low' },
+    { val: 'med', viewValue: 'Medium' },
+    { val: 'high', viewValue: 'High' }
+  ];
 
   constructor() { }
 
@@ -15,7 +25,9 @@ export class TodoListComponent implements OnInit {
   }
   value = '';
   onEnter(value: string) {
-    this.value = value;
-    this.todoitems.push(value);
+    if (value.length > 0) {
+      this.value = value;
+      this.todoitems.push(value);
+    }
   }
 }

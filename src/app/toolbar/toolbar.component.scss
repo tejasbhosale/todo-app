@@ -1,0 +1,13 @@
+.title-toolbar{
+    margin:30%;
+}
+.logo-toolbar{
+    width:180px;
+    height: 30px;
+    float:left;
+}
+@media screen and (max-width: 600px) {
+    .title-toolbar{
+        display: none;
+    }
+  }
