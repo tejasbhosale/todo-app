@@ -4,7 +4,8 @@
     <mat-list-item class="input-fields-todo">
       <mat-form-field class="example-full-width">
         <input class="input-task" #inputvalue type="text" (keyup.enter)="onEnter(inputvalue.value)" matInput placeholder="Enter your task">
-        <input class="input-date" matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="planModel.start_time">
+        <input class="input-date" matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="planModel.start_time"
+          (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -25,7 +26,9 @@
     </mat-list-item>
     <div *ngFor="let item of todoitems" class="items-list {{item.selected}}">
       <mat-list-item>
-        <mat-checkbox>{{item.value}}</mat-checkbox>
+        <mat-checkbox class="checkbox-section">{{item.value}}</mat-checkbox>
+        <p [hidden]="flagOverdue">Overdue by {{item.overdue}} days</p>
+
       </mat-list-item>
     </div>
   </mat-list>
