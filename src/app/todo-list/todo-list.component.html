@@ -1,29 +1,31 @@
 <div class="todo-container">
 
   <mat-list>
-    <mat-list-item>
+    <mat-list-item class="input-fields-todo">
       <mat-form-field class="example-full-width">
         <input class="input-task" #inputvalue type="text" (keyup.enter)="onEnter(inputvalue.value)" matInput placeholder="Enter your task">
-        <input class="input-date" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <input class="input-date" matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="planModel.start_time">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+
       <mat-form-field class="example-full-width select-priority">
-        <mat-select placeholder="Choose Priority">
+        <mat-select placeholder="Choose Priority" [(ngModel)]="selectedValue" [(value)]="selected">
           <mat-option *ngFor="let list of priority" [value]="list.val">
             {{list.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <div class="example-button-row">
-        <button mat-fab color="accent" type="submit">
+        <button mat-fab color="accent" type="submit" (click)="onEnter(inputvalue.value)">
           <span class="btn-add">+</span>
         </button>
       </div>
     </mat-list-item>
-    <div *ngFor="let item of todoitems">
+    <div *ngFor="let item of todoitems" class="items-list {{item.selected}}">
       <mat-list-item>
-        <mat-checkbox>{{item}}</mat-checkbox>
+        <mat-checkbox>{{item.value}}</mat-checkbox>
       </mat-list-item>
     </div>
   </mat-list>

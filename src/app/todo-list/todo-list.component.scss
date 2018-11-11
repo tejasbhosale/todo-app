@@ -17,7 +17,7 @@
     width:40%;
 }
 .select-priority{
-    margin-left:10px;
+    margin-left:20px;
 }
 .example-button-row{
     margin-left:20px;
@@ -25,3 +25,30 @@
 .btn-add{
     font-size:40px;
 }
+
+.items-list{
+    margin-top:5px;
+}
+.input-fields-todo{
+    margin-bottom: 10px;
+}
+.items-list.low{
+    background-color:#FFA500;
+}
+.items-list.medium{
+    background-color:#FF6347;
+}
+.items-list.high{
+    background-color:#CD5C5C;
+}
+.mat-checkbox1{
+    color:#fff;
+}
+@media screen and (max-width: 600px) {
+    .title-toolbar{
+        display: none;
+    }
+    .todo-container{
+       width:100%;
+    }
+  }
