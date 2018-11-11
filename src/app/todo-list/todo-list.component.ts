@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   color: String;
   value: String;
   events: String[] = [];
-  differenceDays: any;
+  differenceDays: any = 0;
   flagOverdue: Boolean = false;
 
   priority: any[] = [
@@ -39,17 +39,17 @@ export class TodoListComponent implements OnInit {
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.differenceDays = event.value.getDate() - new Date().getDate();
-  }
-
-  onEnter(value: string) {
-    if (this.differenceDays < 0) {
+    if (this.differenceDays && this.differenceDays < 0) {
       this.differenceDays = this.differenceDays * -1;
       this.flagOverdue = true;
     } else {
       this.flagOverdue = false;
+      this.differenceDays = 0;
     }
+  }
 
-    console.log(this.flagOverdue);
+  onEnter(value: string) {
+    console.log(this.differenceDays);
     if (value.length > 0) {
       this.value = value;
       let item = {

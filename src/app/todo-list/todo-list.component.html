@@ -27,8 +27,8 @@
     <div *ngFor="let item of todoitems" class="items-list {{item.selected}}">
       <mat-list-item>
         <mat-checkbox class="checkbox-section">{{item.value}}</mat-checkbox>
-        <p [hidden]="flagOverdue">Overdue by {{item.overdue}} days</p>
-
+        <p *ngIf="item.flagOverdue; else dueSoon">Overdue by {{item.overdue}} days</p>
+        <ng-template #dueSoon>Due in {{item.overdue}} days </ng-template>
       </mat-list-item>
     </div>
   </mat-list>
