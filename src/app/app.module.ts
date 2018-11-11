@@ -7,6 +7,8 @@ import { MaterialModule } from './material/material.module';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TasklistService } from './tasklist.service'
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TasklistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

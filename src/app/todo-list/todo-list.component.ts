@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { TasklistService } from '../tasklist.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -31,10 +32,11 @@ export class TodoListComponent implements OnInit {
   selectedValue: string = this.priority[0].val;
   selected = 'low';
 
-  constructor() { }
+  constructor(private _tasklistService: TasklistService) { }
 
   ngOnInit() {
-    this.todoitems = [];
+    this._tasklistService.getTaskList()
+      .subscribe(data => this.todoitems = data);
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -44,7 +46,6 @@ export class TodoListComponent implements OnInit {
       this.flagOverdue = true;
     } else {
       this.flagOverdue = false;
-      this.differenceDays = 0;
     }
   }
 
@@ -59,6 +60,7 @@ export class TodoListComponent implements OnInit {
         "flagOverdue": this.flagOverdue
       };
       this.todoitems.push(item);
+      console.log(this.todoitems);
     }
   }
 }
