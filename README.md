@@ -4,8 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Description 
 
-Todo list app where first 5 tasks are loading through the service call. Dummy API was created on postman.
-After that user can enter or click + button to add tasks. It has target date datepicker and priority dropdown.
+Todo list app :- First 5 tasks are loading through the service call. Mock API is created on postman.
+After that, user can press enter or click + button to add tasks. It has target date datepicker and priority dropdown.
 List item populates with different colors according to priority chosen. And it prints out the number of remaining days or overdue days of the task completion. 
 User can check the item after completion to cross it off from the list. 
 
